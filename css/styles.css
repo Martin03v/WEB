@@ -1,15 +1,120 @@
+/*Comentario
+El . es para llamar a clases
+*/
+
+:root{
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #b6b6b6;
+}
+
+
 html{
     font-size: 62.5%;
 }
 body{
     font-size: 16px;
+    /*background-color: antiquewhite;*/
+    font-family: 'Krub', sans-serif;
+    background: linear-gradient(to top,var(--grisClaro) 0%,var(--blanco) 100%);
 }
-
-.titulo{
-    text-align: center;
+h1{
     font-size: 3.8rem;
-
+    
+}
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1,h2,h3{
+    text-align: center;
 }
 .titulo span{
     font-size: 2rem;
+}
+
+.navegacion-principal{
+    display: flex; /*Flexbox esta diseñado para alinear elementos en los diseños*/
+    /*justify-content para FILAS/ align-item es para COLUMNAS (flex-direction)*/
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: bold; /*Negritas en texto*/
+    font-size: 2rem;
+    align-items: center;
+}
+/*Al poner el cursor en el hipervinculo*/
+.navegacion-principal a:hover{
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+.navegacion-principal a{
+    color: var(--blanco);
+    text-decoration: none;/*Remueve el estilo subrayado en el texto*/
+    padding: 1rem;
+}
+
+/*Margin es por fuera y padding es por dentro*/
+.contenedor{
+    max-width: 120rem;/*1200 pixeles porque 1 rem =  10px*/
+    margin: 0 auto;
+}
+.nav-bg{
+    background-color: var(--secundario);
+}
+
+
+
+@media (min-width: 768px){
+.navegacion-principal{
+    flex-direction: row;
+    justify-content: space-between;
+    }
+}
+
+.hero{
+    background-image: url(../img/hero.jpg);/* ../ es para regresar un nivel de directorio ya que la carpeta img esta afuera de "css"*/
+    background-repeat: no-repeat; /* Sirve para evitar la repeticion de la imagen cuando es pequeña*/
+    background-size: cover;/*Sirve para cubrir la imagen con todo el tamaño posible*/ 
+    height: 450px; /*Alto del elemento hero*/
+    position: relative;/*Para manipular la posicion. El padre siempre de ser relativo*/
+}
+
+.contenido-hero{
+    position: absolute;/*Para manipular la posicion. El hijo debe ser siempre absolute*/
+    background-color: rgba(0, 0, 0,.7);
+    width: 100%;
+    height: 100%;
+    /*Alinear vertical y horizontalmente*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--blanco);
+}
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+
+.contact-button{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    border-radius: 2rem;
+    width: 90%;
+    text-align: center;
+}
+@media (min-width: 768px){
+    .contact-button{
+        width: auto;
+    }
 }
