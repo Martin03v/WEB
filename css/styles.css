@@ -81,7 +81,7 @@ h1,h2,h3{
         flex-direction: row;
         justify-content: space-between;
     }
- 
+
 }
 
 /*Al poner el cursor en el hipervinculo*/
@@ -132,7 +132,7 @@ h1,h2,h3{
     align-items: center;
     justify-content: center;
     
-   
+
 }
 .contenido-hero p,  /*poner las letras en blanco*/
 .contenido-hero h2{
@@ -155,6 +155,7 @@ color: var(--blanco);
     transition: background-color 0.3s ease; /* Añade una transición suave para el hover */
     font-weight: bold;
     text-transform: uppercase; /*poner mayusculas*/
+    border: none;
 }
 .boton:hover{
     background-color: #ffc107;
@@ -181,16 +182,16 @@ color: var(--blanco);
 
 /*Servicios*/
 @media (min-width:768px){
-.servicios{
-    display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr; Por fracciones dividir el contenido*/
-    /*grid-template-columns: 33.3% 33.3% 33.3%; Por porcentajes */
-    grid-template-columns: repeat(3,1fr);  /* repetir algo esa cantidad de veces*/
-    /* esta propiedad define el área de las columnas, y la función repeat repite 3 veces
-    1 fracción en el grid/rejilla/cuadricula */
-    column-gap: 1rem; 
-
-}
+    .servicios{
+        display: grid;
+        /* grid-template-columns: 1fr 1fr 1fr; Por fracciones dividir el contenido*/
+        /*grid-template-columns: 33.3% 33.3% 33.3%; Por porcentajes */
+        grid-template-columns: repeat(3,1fr);  /* repetir algo esa cantidad de veces*/
+        /* esta propiedad define el área de las columnas, y la función repeat repite 3 veces
+        1 fracción en el grid/rejilla/cuadricula */
+        column-gap: 1rem; 
+        /*permite dar espacios el column-gap*/
+    }
 }
 
 /*centrar iconos */
@@ -204,7 +205,7 @@ color: var(--blanco);
     }
     p{
         text-align: center;
-        line-height: 2;/*poner interlineado*/
+        line-height: 2;/*poner interlineado entre parrafos*/
     }
     .iconos{
         width: 15rem;
@@ -214,7 +215,80 @@ color: var(--blanco);
 
         /*centrar elementos de manera horizontal y vertical*/
         display:flex;
-        justify-content: space-evenly;
+        justify-content: space-evenly; /*Uniformente*/
         align-items: center;
+    }
+}
+/*Contacto*/
+.formulario{
+    background-color: var(--gris);
+    /*Como manejar el ancho
+    ¿Que es mas pequeño, 60 rem o el 100% de la pantalla?*/
+    width: min(60rem,100%);
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1 rem;
+    
+}
+.formulario fieldset{
+    border: none; /*Quita el borde*/
+
+}
+.formulario legend{
+    text-align: center;
+    text-transform: uppercase; /*mayuscula*/
+    font-weight: bold;
+    font-size: 1.8 rem;
+    margin-bottom: 2rem;
+    color: var(--primario);
+    
+
+}
+.campo{
+    margin-bottom: 1rem;
+}
+.campo textarea{
+    height: 20rem;
+}
+.campo label{
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: flex;
+}
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    
+}
+/* UTILIDADES */
+.w-sm-100{
+    width: 100%;
+}
+@media(min-width: 768px){
+    .w-sm-100{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+/* Ajuste de columnas */
+@media(min-width:768px){
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 1rem;
+        grid-template-rows: auto auto 2 rem; /* Espacio de filas*/
+    }
+    /* El orden seria: 1.nombre, 2.telefono, 3.corre, 4.mensaje */
+    .campo:nth-child(3),
+    .campo:nth-child(4){
+        grid-column: 1/3; /* posicion el elemento para que vaya de la columna 1 a la 3*/
     }
 }
